@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+import json
+
 ### START OF RULES ###
 
 def ge():
@@ -19,12 +21,11 @@ def ie():
 
 ### END OF RULES ###
 
-file = open("rules.txt", "r")
-#for line in file:
-    #loadRules(line)
+
+rulesWithValues = json.load(open("rulz.txt"))
 
 ### START OF DICTIONARYS ###
-rulesWithValues = {'g': 0, 'h': 0, 'i': 0}
+#rulesWithValues = {'g': 0, 'h': 0, 'i': 0}
 
 sortedRules = sorted(rulesWithValues.items(), key=lambda x: -x[1])
 
@@ -48,5 +49,9 @@ for x in range(0,5):
     for rule in sortedRuleList:
         func[rule]()
         print rulesWithValues
+
+#Save the rule's priority value in a text file 
+with open ('rulz.txt', 'w') as file:
+    file.write(json.dumps(rulesWithValues))
     
 ### END  LOOP ###
