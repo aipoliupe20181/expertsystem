@@ -7,42 +7,42 @@ indicador = 0
 
 ### START OF RULES ###
 def a():
-    if(salario < salarioMinimo):
+    if(int(salario) < salarioMinimo):
         global valorPoupadoMensal
         valorPoupadoMensal = 0
         rulesWithValues['a'] += 1
 
 
 def b():
-    if(salario >= salarioMinimo and salario < salarioMinimo*5):
+    if(int(salario) >= salarioMinimo and int(salario) < salarioMinimo*5):
         global valorPoupadoMensal
         valorPoupadoMensal = (5/100)*salario
         rulesWithValues['b'] += 1
 
 
 def c():
-    if(salario >= salarioMinimo*5 and salario < salarioMinimo*10):
+    if(int(salario) >= salarioMinimo*5 and int(salario) < salarioMinimo*10):
         global valorPoupadoMensal
         valorPoupadoMensal = (10/100)*salario
         rulesWithValues['c'] += 1
 
 
 def d():
-    if(salario >= salarioMinimo*10):
+    if(int(salario) >= salarioMinimo*10):
         global valorPoupadoMensal
         valorPoupadoMensal = (20/100)*salario
         rulesWithValues['d'] += 1
 
 
 def e():
-    if(valorPoupadoMensal*tempoDeServico < valorImovel):
+    if(valorPoupadoMensal*int(tempoDeServico) < int(valorImovel)):
         rulesWithValues['e'] += 1
         global indicador
         indicador += 1
 
 
 def f():
-    if(valorPoupadoMensal*tempoDeServico >= valorImovel):
+    if(valorPoupadoMensal*int(tempoDeServico) >= int(valorImovel)):
         rulesWithValues['f'] += 1
 ### END OF RULES ###
 
@@ -76,5 +76,5 @@ for rule in sortedRuleList:
 with open('rulz.txt', 'w') as file:
     file.write(json.dumps(rulesWithValues))
 
-print "Este servidor possui um indicador de " + str(indicador)
+print ("Este servidor possui um indicador de " + str(indicador))
 ### END  LOOP ###
