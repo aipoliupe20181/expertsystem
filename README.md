@@ -1,2 +1,6 @@
-# expertsystem
-expert system to help identify asset mismatch using pyknow(http://pyknow.readthedocs.io/en/stable/index.html)
+# Expert System
+expert system to help identify asset mismatch
+
+@Authors: 
+ - Camila Luisa - clfl@ecomp.poli.br
+ - Eduardo Müller - eam@ecomp.poli.br
